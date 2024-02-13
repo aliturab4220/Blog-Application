@@ -1,0 +1,26 @@
+<div class="admin-title">
+  <h2 style="color: white; font-size: 50px;">Posts</h2>
+  <a href="/add-post" class="button">+ Add New</a>
+</div>
+
+<ul class="admin-posts">
+
+  <% data.forEach(post=> { %>
+
+    <li>
+      <a class="post-title" href="/post/<%= post._id %>">
+        <%= post.title %> &nearr;
+      </a>
+      <div class="admin-post-controls">
+        <a href="/edit-post/<%= post._id %>" class="edit-btn btn">Edit</a>
+
+        <form action="/delete-post/<%= post._id %>?_method=DELETE" method="POST">
+          <input type="submit" value="Delete" class="btn-delete btn">
+        </form>
+
+      </div>
+
+    </li>
+
+    <% }) %>
+</ul>

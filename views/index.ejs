@@ -1,0 +1,32 @@
+<section class="hero">
+  <div class="text-container">
+    <h1>Hi, My Name is <span>Ali Turab</span></h1>
+    <div class="wrapper">
+      <span>I am <span class="multiText">Coder</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="articles">
+  <h2 class="articles-heading">Latest Posts</h2>
+  <ul class="articles-ul">
+
+    <% data.forEach(post => { %>
+     
+    
+    <li>
+      <a href="/post/<%= post._id %>">
+        <span><%= post.title %></span>
+        <span class="article-list-date"><%= post.createdAt.toDateString() %></span>
+      </a>
+    </li>
+  
+    <% }) %>
+
+  </ul>
+
+  <% if (nextPage !== null) { %>
+    <a href="/?page="<%= nextPage %> class="pagination">&lt; view order posts</a>
+  <% } %>
+
+</section>
